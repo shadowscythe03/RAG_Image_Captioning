@@ -1,0 +1,38 @@
+# Core ML libraries
+torch>=1.9.0
+torchvision>=0.10.0
+numpy>=1.21.0
+
+# Transformers for object detection and segmentation
+transformers>=4.20.0
+
+# Image processing
+Pillow>=8.3.0
+opencv-python>=4.5.0
+
+# CLIP model
+open_clip_torch>=2.0.0
+
+# Database
+chromadb>=0.3.0
+
+# Data handling
+tqdm>=4.62.0
+pandas>=1.3.0
+
+# Visualization
+matplotlib>=3.4.0
+ipython>=7.25.0
+
+# Utilities
+wget>=3.2
+requests>=2.25.0
+
+# OFA dependencies (when enabled)
+# transformers>=4.20.0
+# sentencepiece>=0.1.96
+
+# Development
+pytest>=6.2.0
+black>=21.6.0
+flake8>=3.9.0
