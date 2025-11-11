@@ -1,0 +1,8 @@
+{
+  "num_test_images": 50,
+  "enable_object_detection": true,
+  "enable_segmentation": true,
+  "crops_per_mode": 2,
+  "model": "BLIP-2 (Salesforce/blip2-opt-2.7b)",
+  "timestamp": "20251105_215414"
+}
