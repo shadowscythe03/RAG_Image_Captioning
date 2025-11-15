@@ -1,1 +1,11 @@
 coco/
+chroma_db/
+*.aux
+*.bbl
+*.blg
+*.fls
+*.log
+*.fdb_latexmk
+*.bst
+*.out
+*.synctex.gz

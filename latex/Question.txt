@@ -1,0 +1,56 @@
+CS 613: Natural Language Processing
+IIT Gandhinagar
+Sem-I - 2025-26
+_______________________________________________________________________
+ASSIGNMENT 2
+
+Total marks: 150 Pts
+Submission deadline: Wednesday, November 05, 2025, 11:59 PM (Final extension)
+Submission guidelines:
+Code should be added to a GitHub repository, and the repository details should be shared in the PDF.
+Submit the PDF showing screenshots of all steps involved in the following code.
+Submission link: here (The link is updated)
+Note: Submitting this assignment solution confirms that you will follow the IITGN's honor code. We shall strictly penalize and assign zero to the submissions containing plagiarized text/code or AI-generated content.
+_______________________________________________________________________
+Objective:
+Building on previous work, incorporating feedback, and introducing new elements.
+
+I. Report (50 Pts)
+Write the feedback provided and write the novelties discussed with the mentor (10 Pts)
+Write all feedback since presentation 1, and report the work completed in weekly meetings with your mentors.
+Report the other baselines you want to compete with (10 Pts)
+What is the state-of-the-art  (the best paper that has solved the approach)?
+Are baseline implementations available for the novelties? 
+Datasets  (05 Pts)
+How did you tackle the bias in your samples? 
+What bottleneck did you encounter?
+How did you extend the existing dataset, and what are the differences between it and the previous one? 
+Experimental Plan (15 Pts)
+What experimental setting did you choose? How did you train the models? What methods did you use to ensure the results were robust, considering the limited computational resources? 
+What models/approaches did you use? 
+How did you ensure that the approaches differed from one another? 
+Compute the number of parameters and report the architectural differences. 
+How to find the best params for your algos and baselines? 
+Grid search or better techniques.
+Prepare the table for ablation with different hyperparameters.
+What metric did you choose? And why?
+What additional metrics did you try with, other than the existing metrics? 
+What level of system effort was required? Please paint a scenario for the final demo that you will present during the viva.
+Project Management  (10 Pts)
+How did you manage to propose the novel solutions? 
+Computational resources (RAM, GPUs, CPU Cores, Hard Disk, etc.) are needed. 
+How will you divide the project among yourselves? What tasks are distributed amongst you?
+
+II. Experiment (100 Pts)  (Please discuss with your mentor about the expectations)
+Implementation (50 Pts) 
+Implement the novelties/feedback.
+Get the boiler code ready with the entire pipeline! This includes your dataset preparation, training, and evaluation for novelty.
+Note: Do not reproduce the results for closed-source/larger LLMs. 
+Feel free to use the existing code, update it, or write the code from scratch.
+Reporting the results/findings (10 Pts)
+Report the pattern in results and findings from the pattern for the smaller LLMs/baselines.
+Viva (40 Pts)
+TAs will conduct the viva for the report and code execution.
+You need to meet with your mentors regularly for weekly updates. 
+
+Note: The report should be written in LaTeX using the following ACL format (see here). Ensure that the citations, writing, tables, and figures adhere to the template specifications. Ensure that you add the team members.

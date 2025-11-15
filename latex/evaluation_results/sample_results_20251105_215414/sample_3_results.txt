@@ -1,0 +1,23 @@
+Image: 000000273760.jpg
+Image ID: 273760
+
+================================================================================
+ORIGINAL RAG SETUP (Original Image Only)
+================================================================================
+Retrieved Captions:
+"A man flying through the air while riding a surfboard. A person is on a surf board in the ocean doing a jump. The surfer remains on the board despite being thrown by the wave into an odd angle. The man is showcasing his
+
+================================================================================
+PROPOSED RAG SETUP (Original + Crops)
+================================================================================
+Number of Crops Generated: 4
+
+Crop Captions:
+  Crop 1: A aerial photo showing a tennis player ready to serve the ball. A man stands on the outer edge of a tennis court. A man is playing tennis on a tennis court. 
+  Crop 2: A bike mounted to a wall next to a tall pole. This tree serves as a perfectly good bike rack Three bicycles are hanging from a tree next to a building.
+  Crop 3: A man flying through the air while riding a surfboard. A person is on a surf board in the ocean doing a jump. The surfer remains on the board despite being thrown by the wave into an odd angle.
+  Crop 4: A aerial photo showing a tennis player ready to serve the ball. A man is playing tennis on a tennis court.  A man holding a tennis racquet while standing on a tennis court.
+
+Final Aggregated Caption:
+A man flying through the air while riding a surfboard. A person is on a surf board in the ocean doing a jump. The surfer remains on the board despite being thrown by the wave into an odd angle. aerial photo showing tennis player ready serve ball. stands outer edge court. playing bike mounted wall next tall pole. This
+

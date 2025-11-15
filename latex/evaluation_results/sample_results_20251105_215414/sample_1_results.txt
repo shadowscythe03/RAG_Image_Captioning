@@ -1,0 +1,23 @@
+Image: 000000301061.jpg
+Image ID: 301061
+
+================================================================================
+ORIGINAL RAG SETUP (Original Image Only)
+================================================================================
+Retrieved Captions:
+"A plane is boarded with maintenance trucks alongside cargo trailers. A ramp extends to an airplane that is sitting on the runway. A jetliner parked on an airport tarmac next to a truck. An airplane parked at the airport loading cargo. An airplane
+
+================================================================================
+PROPOSED RAG SETUP (Original + Crops)
+================================================================================
+Number of Crops Generated: 4
+
+Crop Captions:
+  Crop 1: An older man backing up a truck with a bicycle in it's flat bed. A man looking out the back window of his truck. A man in a truck looking behind him.
+  Crop 2: The top of a giraffe's head has birds on it. Three birds sit on the back of a giraffe.  A giraffe with 3 birds on his fur.
+  Crop 3: An older man backing up a truck with a bicycle in it's flat bed. A man in a truck looks out his rear window. A man in a truck looking behind him.
+  Crop 4: A bathroom filled with rotten,crap filled, destroyed toilets sitting in a row in a destroyed bathroom. A row of abandoned toilets along in various stages of disrepair. Many toilets lined up against a wall in a rooms.
+
+Final Aggregated Caption:
+A plane is boarded with maintenance trucks alongside cargo trailers. A ramp extends to an airplane that is sitting on the runway. A jetliner parked on an airport tarmac next to a truck. older man backing bicycle flat bed. looking out back window his behind him. top head has birds Three sit giraffe.
+

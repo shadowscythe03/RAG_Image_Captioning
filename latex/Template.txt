@@ -1,0 +1,55 @@
+I. Report (50 Pts)
+Write the feedback provided and write the novelties discussed with the mentor (10 Pts.
+Since the first presentation, our team initially proposed to implement a multilingual image captioning RAG (Retrieval-Augmented Generation) model and make modifications to its architecture. However, based on the professor’s feedback, we shifted our focus more towards improving the architecture of the RAG model itself instead of expanding it to multiple languages at this stage. During our mentor discussions, it was suggested that we carefully analyze the baseline paper’s implementation to identify the main bottlenecks and understand where improvements could be made. Through this process, we found that the baseline model had limitations in representing multiple objects within an image, which affected the quality of the generated captions and the retrieval results. We also noticed potential inefficiencies in the nearest embedding search algorithm and the way visual features were encoded. To address these issues, we started working on enhancing the image representation by integrating object detection and segmentation algorithms. This allowed us to detect multiple objects in a single image and generate individual embeddings for each object using CLIP. We then combined these embeddings to form a more comprehensive image representation, which was later used for searching and retrieving relevant information from the database. By doing this, we aimed to overcome the issue of limited object representation and improve the overall performance of the RAG model. Throughout our weekly meetings, we continuously refined this approach, discussed various design choices, and compared the results of our modified architecture with the baseline outcomes.
+
+Report the other baselines you want to compete with (10 Pts)
+State-of-the-art
+For this problem, the current best approach is the DIR model, proposed by Hao Wu and colleagues in the paper “DIR: Retrieval-Augmented Image Captioning with Comprehensive Understanding”. DIR focuses on improving image captioning by introducing diffusion-guided image representation to make the image encoder capture a broader range of semantic details, such as objects, actions, and scene context. It builds a comprehensive retrieval database that decomposes textual knowledge into fine-grained attributes and retrieves relevant details to support the captioning process. This design helps the model generalise better to novel or out-of-domain scenarios while maintaining strong in-domain performance. Importantly, these improvements come without adding inference overhead, making DIR a robust and efficient solution. However, due to the unavailability of code for this DIR model and considering that DIR and other state-of-the-art models are built on SmallCap, we are implementing SmallCap model.
+
+Baseline implementations availability
+No, the baseline implementations are not available. We have codes for SmallCap, RobustCap. But we were unable to get RobustCap working. So, we used the model for the SmallCap available on SmallCap.
+
+Table of results from a previous paper
+The paper shows that DIR is able to perform better than existing models, especially when it comes to captioning images with unseen objects. Attached the table below:
+
+
+
+Datasets  (05 Pts)
+How did you tackle the bias in your samples? 
+What bottleneck did you encounter?
+How did you extend the existing dataset, and what are the differences between it and the previous one? 
+	Yes, DIR uses the COCO dataset mainly -  COCO, which is available open source.
+COCO:
+
+Vocabulary size: 17039
+Vocab_size and len(words) ratio: 0.0079
+Experimental Plan (15 Pts)
+What experimental setting did you choose? How did you train the models? What methods did you use to ensure the results were robust, considering the limited computational resources? 
+What models/approaches did you use? 
+How did you ensure that the approaches differed from one another? 
+Compute the number of parameters and report the architectural differences.
+How to find the best params for your algos and baselines? 
+Grid search or better techniques.
+Prepare the table for ablation with different hyperparameters.
+What metric did you choose? And why?
+BLEU score, METEOR, ROUGE_L, CIDEr, SPICE. Each metric mentioned above tells about a different semantic meaning in the output. And importantly, the current SOTA papers use these metrics, so we use these for comparison.
+
+What level of system effort was required? Please paint a scenario for the final demo that you will present during the viva.
+	A moderate system effort is required: a single GPU (e.g., RTX 3090 or V100) with 16–32 GB RAM and ~500 GB storage is sufficient to deploy modified architecture models
+Project Management  (10 Pts)
+How did you manage to propose the novel solutions? 
+Computational resources (RAM, GPUs, CPU Cores, Hard Disk, etc.) are needed. 
+How will you divide the project among yourselves? What tasks are distributed amongst you?
+
+II. Experiment (100 Pts)  (Please discuss with your mentor about the expectations)
+Implementation (50 Pts) 
+Implement the novelties/feedback.
+Get the boiler code ready with the entire pipeline! This includes your dataset preparation, training, and evaluation for novelty.
+Note: Do not reproduce the results for closed-source/larger LLMs. 
+Feel free to use the existing code, update it, or write the code from scratch.
+Reporting the results/findings (10 Pts)
+Report the pattern in results and findings from the pattern for the smaller LLMs/baselines.
+Viva (40 Pts)
+TAs will conduct the viva for the report and code execution.
+You need to meet with your mentors regularly for weekly updates. 
+

@@ -1,0 +1,23 @@
+Image: 000000382030.jpg
+Image ID: 382030
+
+================================================================================
+ORIGINAL RAG SETUP (Original Image Only)
+================================================================================
+Retrieved Captions:
+"Person lying on brown leather couch in sparsely fille room. The woman is laying down sleeping on the couch. A woman lying down on a couch with newspapers near her feet. a person laying down on a brown coach A girl asleep on a
+
+================================================================================
+PROPOSED RAG SETUP (Original + Crops)
+================================================================================
+Number of Crops Generated: 4
+
+Crop Captions:
+  Crop 1: Person lying on brown leather couch in sparsely fille room. The woman is laying down sleeping on the couch.  A woman lying down on a couch with newspapers near her feet.
+  Crop 2: An older man backing up a truck with a bicycle in it's flat bed. A man looking out the back window of his truck. A man sits in the drivers seat of a truck.
+  Crop 3: The woman is laying down sleeping on the couch.  A woman lying down on a couch with newspapers near her feet. A girl asleep on a couch in a wood paneled room
+  Crop 4: A collection of items from a bag laid on floor. Items from a green tote sit on the floor and include a cell phone, an Ipod, a green folder, keys, pens and a few other items. the contents of a bag laying organized on the floor 
+
+Final Aggregated Caption:
+The woman is laying down sleeping on the couch.  A woman lying down on a couch with newspapers near her feet. A girl asleep on a couch in a wood paneled room Person brown leather sparsely fille older man backing truck bicycle flat bed. looking out back window his sits drivers seat
+

@@ -98,10 +98,8 @@ class RAGRetriever:
         
         if use_advanced_preprocessing:
             # Use advanced preprocessing with multiple image variants
-            from image_preprocessing import get_all_image_variants
-            
             try:
-                image_variants = get_all_image_variants(image_path)
+                image_variants = image_preprocessor.get_all_image_variants(image_path)
                 
                 # Convert all variants to tensors
                 variant_tensors = []

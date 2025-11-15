@@ -56,6 +56,11 @@ class AdvancedImagePreprocessor:
         except Exception as e:
             print(f"⚠️ Warning: Could not load advanced models: {e}")
             print("Falling back to basic preprocessing...")
+            # Ensure models are None so other methods can check
+            self.segmentation_processor = None
+            self.segmentation_model = None
+            self.object_detection_processor = None
+            self.object_detection_model = None
     
     def get_clip_transform(self, clip_preprocess):
         """Get CLIP preprocessing transform."""
@@ -114,13 +119,25 @@ class AdvancedImagePreprocessor:
             
             # Process segmentation masks
             processed_sizes = inputs["pixel_values"].shape[-2:]
-            result = self.segmentation_processor.post_process_segmentation(
+            result = self.segmentation_processor.post_process_panoptic_segmentation(
                 outputs, target_sizes=[image.size[::-1]]
             )[0]
             
             # Extract segments and create crops
             crops = []
-            segmentation = result["segmentation"]
+            
+            # Check if we have segmentation data
+            if "segmentation" in result:
+                segmentation = result["segmentation"]
+            elif "segments_info" in result:
+                # Handle panoptic segmentation format
+                segmentation = result.get("segmentation", None)
+                if segmentation is None:
+                    print("⚠️ No segmentation map found in results")
+                    return []
+            else:
+                print("⚠️ No segmentation information found in model output")
+                return []
             
             # Get unique segment IDs (excluding background)
             unique_segments = torch.unique(segmentation)
@@ -131,7 +148,8 @@ class AdvancedImagePreprocessor:
             for seg_id in valid_segments:
                 mask = (segmentation == seg_id)
                 size = mask.sum().item()
-                segment_sizes.append((seg_id, size))
+                if size > 100:  # Minimum segment size threshold
+                    segment_sizes.append((seg_id, size))
             
             segment_sizes.sort(key=lambda x: x[1], reverse=True)
             top_segments = segment_sizes[:CROPS_PER_MODE]

@@ -82,16 +82,17 @@ class EvaluationManager:
                 print("❌ CLIP preprocessor not available")
                 return {"error": "CLIP preprocessor not loaded"}
             
-            # Apply initial preprocessing
-            image = self.image_preprocessor.apply_initial_processing(image_path)
+            # Apply initial preprocessing and get the original image
+            processed_result = self.image_preprocessor.apply_initial_processing(image_path)
+            original_image = processed_result['original']
             
             # Preprocess for CLIP (for RAG retrieval)
             clip_tensor = self.image_preprocessor.preprocess_for_clip(
-                image, self.model_manager.clip_preprocess
+                original_image, self.model_manager.clip_preprocess
             ).to(self.model_manager.device)
             
             # Preprocess for OFA (for generation)
-            ofa_tensor = self.image_preprocessor.preprocess_for_ofa(image).to(self.model_manager.device)
+            ofa_tensor = self.image_preprocessor.preprocess_for_ofa(original_image).to(self.model_manager.device)
             
             # Retrieve context captions
             context_captions = self.rag_retriever.retrieve_topk_captions_from_image_tensor(clip_tensor, top_k)
@@ -158,8 +159,10 @@ class EvaluationManager:
                             img_path, self.model_manager.clip_preprocess
                         ).to(self.model_manager.device)
                         
-                        stats = self.rag_retriever.get_retrieval_statistics(clip_tensor)
-                        result["retrieval_stats"] = stats
+                        # Only add stats if method exists
+                        if hasattr(self.rag_retriever, 'get_retrieval_statistics'):
+                            stats = self.rag_retriever.get_retrieval_statistics(clip_tensor)
+                            result["retrieval_stats"] = stats
                 except Exception as e:
                     print(f"⚠️ Could not get retrieval stats: {e}")
             

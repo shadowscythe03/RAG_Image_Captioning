@@ -46,6 +46,7 @@ DEFAULT_TOP_K = 5
 # Advanced Preprocessing Configuration
 # =============================
 # Segmentation and Object Detection
+# Set to False if you encounter model loading issues
 ENABLE_SEGMENTATION = True
 ENABLE_OBJECT_DETECTION = True
 CROPS_PER_MODE = 3  # Number of crops to generate per mode
@@ -59,6 +60,17 @@ OBJECT_DETECTION_MODEL = "facebook/detr-resnet-50"
 # Advanced RAG settings
 CAPTIONS_PER_CROP = 3  # Number of captions to retrieve per crop
 AGGREGATE_CAPTIONS = True  # Whether to intelligently aggregate captions
+
+# Fallback configuration - automatically disable advanced features on errors
+def get_safe_advanced_config():
+    """Get safe configuration that disables advanced features if there are issues."""
+    try:
+        # Test if we can import required modules
+        from transformers import DetrImageProcessor, DetrForObjectDetection, DetrForSegmentation
+        return ENABLE_SEGMENTATION, ENABLE_OBJECT_DETECTION
+    except ImportError:
+        print("⚠️ Advanced preprocessing dependencies not available, disabling advanced features")
+        return False, False
 
 # =============================
 # Output Configuration

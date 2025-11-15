@@ -1,0 +1,23 @@
+Image: 000000248400.jpg
+Image ID: 248400
+
+================================================================================
+ORIGINAL RAG SETUP (Original Image Only)
+================================================================================
+Retrieved Captions:
+"A man sits on a toilet in a bathroom. A man sits on a toilet while looking at porn magazines. A person sits on the toilet in a bathroom reading a magazine. A fat ass sitting on a toilet with lady magazines."
+
+================================================================================
+PROPOSED RAG SETUP (Original + Crops)
+================================================================================
+Number of Crops Generated: 4
+
+Crop Captions:
+  Crop 1: A room is shown with a washer and oven. An oven, and clothes washer are in a small kitchen. a kitchen with a stove a dih washer and a mcirowave
+  Crop 2: A pizza sitting on top of a table with olives, sausage and cheese. A pizza with multiple toppings on it, including olives The personal pizza is topped with black olives and anchovies.
+  Crop 3: A bathroom with urinals that have graffiti above them A series of urinals on a graffiti covered wall. Three urinals and another toilet in a bathroom
+  Crop 4: A dirty bathroom consisting of a toilet, bath tub and sink.  a bathroom with a toilet and a sink A bathroom mirror, with a person taking a picture in it.
+
+Final Aggregated Caption:
+a man sits on a toilet in a bathroom. A man sits on a toilet while looking at porn magazines. A fat ass sitting on a toilet with lady magazines.   room shown washer and oven. clothes are small kitchen. stove dih mcirowave pizza top table olives, sausage cheese. multiple toppings
+
