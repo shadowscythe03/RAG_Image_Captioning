@@ -30,7 +30,7 @@ class Config:
     CLIP_PRETRAINED = "openai"
     
     # LLM Caption Generation
-    ENABLE_LLM_GENERATION = False  # Set to True to use BLIP-2 for caption generation
+    ENABLE_LLM_GENERATION = True  # Set to True to use BLIP-2 for caption generation
     BLIP2_MODEL_NAME = "Salesforce/blip2-opt-2.7b"  # or "Salesforce/blip2-flan-t5-xl"
     MAX_NEW_TOKENS = 50
     NUM_BEAMS = 3
@@ -40,8 +40,10 @@ class Config:
     ENABLE_SEGMENTATION = True
     ENABLE_OBJECT_DETECTION = True
     CROPS_PER_MODE = 3
-    MIN_CROP_SIZE = 64
+    MIN_CROP_SIZE = 48  # lowered to allow smaller objects
     CROP_PADDING = 10
+    DETECTION_SCORE_THRESHOLD = 0.3  # was 0.5, lowered to capture more boxes
+    SEGMENT_TOP_K = 3  # number of top segments to consider
     
     # Segmentation/Detection models
     SEGMENTATION_MODEL = "facebook/detr-resnet-50-panoptic"
@@ -802,6 +804,22 @@ class RAGImageCaptioning:
     def get_image_stats(self) -> dict:
         """Get statistics about the image database."""
         return self.db_manager.get_stats()
+    
+    def get_image_variants(self, image_path: str) -> dict:
+        """Get all image variants (crops, segments) for visualization."""
+        return self.preprocessor.get_all_variants(image_path)
+    
+    def get_stats(self, image_path: str, top_k: int = None) -> dict:
+        """Get retrieval statistics for an image."""
+        if top_k is None:
+            top_k = self.config.DEFAULT_TOP_K
+        
+        img_tensor = self.preprocessor.preprocess_for_clip(
+            image_path,
+            self.model_manager.clip_preprocess
+        ).to(self.config.DEVICE)
+        
+        return self.retriever.get_retrieval_stats(img_tensor, top_k)
     
     def close(self):
         """Clean up resources: close database, release models, etc."""

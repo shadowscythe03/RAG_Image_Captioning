@@ -91,7 +91,7 @@ def main():
             with st.spinner("Loading models... This may take a minute..."):
                 try:
                     pipeline = load_pipeline()
-                    pipeline.initialize(load_db=True)
+                    pipeline.setup()
                     st.success("✅ Pipeline initialized!")
                     st.session_state['initialized'] = True
                 except Exception as e:
