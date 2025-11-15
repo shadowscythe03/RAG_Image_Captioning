@@ -43,7 +43,7 @@ def display_variants(variants: dict):
     # Display original
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        st.image(variants['original'], caption='Original', use_column_width=True)
+        st.image(variants['original'], caption='Original', width='stretch')
     
     # Display segmentation crops
     seg_crops = variants.get('segmentation_crops', [])
@@ -60,7 +60,7 @@ def display_variants(variants: dict):
             col_idx = 0
         
         with cols[col_idx]:
-            st.image(crop, caption=f'Segment {i+1}', use_column_width=True)
+            st.image(crop, caption=f'Segment {i+1}', width='stretch')
         col_idx += 1
     
     for i, crop in enumerate(obj_crops):
@@ -70,7 +70,7 @@ def display_variants(variants: dict):
             col_idx = 0
         
         with cols[col_idx]:
-            st.image(crop, caption=f'Object {i+1}', use_column_width=True)
+            st.image(crop, caption=f'Object {i+1}', width='stretch')
             if i < len(detected_objects):
                 obj_info = detected_objects[i]
                 st.caption(f"Confidence: {obj_info['score']:.2%}")
@@ -159,7 +159,7 @@ def main():
         
         with col1:
             st.subheader("Uploaded Image")
-            st.image(Image.open(image_path), use_column_width=True)
+            st.image(Image.open(image_path), width='stretch')
         
         with col2:
             st.subheader("Actions")
@@ -168,7 +168,7 @@ def main():
                 st.warning("⚠️ Please initialize the pipeline first (see sidebar)")
                 st.info("Click '🚀 Initialize Pipeline' in the sidebar to load models")
             else:
-                if st.button("🔍 Analyze Image", type="primary", use_container_width=True):
+                if st.button("🔍 Analyze Image", type="primary", width='stretch'):
                     try:
                         pipeline = load_pipeline()
                         # Enable LLM generation in config if selected
